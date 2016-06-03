@@ -1,0 +1,41 @@
+
+<!-- 	1. Create an object type person which consists of first name, last name, e-mail and phone number properties.
+		2. Using JavaScript append these properties to appropriate place in an html document.
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>	
+</head>
+<body>
+<h3>Person's details:</h3>
+<p><strong>First Name : </strong><span id="fname"></span></p>
+<p><strong>Last Name : </strong><span id="lname"></span></p>
+<p><strong>Email : </strong><span id="email"></span></p>
+<p><strong>Phone : </strong><span id="phone"></span></p>
+
+<script>
+		function Person(fname, lname, email, phone){
+			var fname = fname;
+			var lname = lname;
+			var email = email;
+			var phone = phone;
+			
+			var getPersonDetail = function(){
+				return { firstname : fname, lastname : lname, email : email, phone : phone};
+			}
+			return getPersonDetail;
+		};
+		
+		(function displayPerson(){
+		
+			var p = Person( "Peter" , "Jones" , "peter.jones@yahoo.in" , "8874578965" );
+			
+			document.getElementById("fname").innerHTML = p().firstname;
+			document.getElementById("lname").innerHTML = p().lastname;
+			document.getElementById("phone").innerHTML = p().phone;
+			document.getElementById("email").innerHTML = p().email;
+		})();
+	</script>
+</body>
+</html>
